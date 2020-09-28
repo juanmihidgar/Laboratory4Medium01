@@ -21,8 +21,10 @@ module.exports = merge.strategy({
   output: {
     path: helpers.resolveFromRootPath('dist'),
     filename: '[name].js',
+    publicPath: '/',
   },
   devServer: {
+    historyApiFallback: true,
     inline: true,
     host: 'localhost',
     port: 8080,
