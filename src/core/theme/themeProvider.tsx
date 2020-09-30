@@ -5,16 +5,18 @@ import { Palette } from './viewModel/Palette.vm';
 
 export const ThemeContext = React.createContext({
   palette: defaultPalette,
-  setPalette: (palette: Palette) => {
-    createPalette(palette);
-  },
+  makePalette: (palette: Palette) => {},
 });
 
 export const MyThemeProvider = props => {
   const [palette, setPalette] = React.useState(defaultPalette);
 
+  const makePalette = (palette: Palette) => {
+    setPalette(createPalette(palette));
+  };
+
   return (
-    <ThemeContext.Provider value={{ palette, setPalette }}>
+    <ThemeContext.Provider value={{ palette, makePalette }}>
       {props.children}
     </ThemeContext.Provider>
   );
