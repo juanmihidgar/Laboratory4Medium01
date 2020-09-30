@@ -10,10 +10,12 @@ export const ProductListScene: React.FC = () => {
       <div className={classes.main}>
         <ProductListLayout />
       </div>
-      <CartLayout>
+
+      <div className={classes.main}>
+        <CartLayout />
         <button>hola</button>
         <Link to={routes.checkout}>Finish</Link>
-      </CartLayout>
+      </div>
     </>
   );
 };

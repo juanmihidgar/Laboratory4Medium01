@@ -5,16 +5,7 @@ export const ProductListLayout: React.FunctionComponent = () => {
   const themeContext = React.useContext(ThemeContext);
 
   const onChangeTheme = () => {
-    themeContext.makePalette({
-      success: {
-        main: 'red',
-      },
-      productCard: {
-        background: 'green',
-      },
-    });
-
-    console.log(themeContext.palette);
+    themeContext.setTheme(themeContext.theme === 'white' ? 'black' : 'white');
   };
 
   return (
