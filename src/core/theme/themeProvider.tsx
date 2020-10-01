@@ -1,21 +1,33 @@
 import React, { useEffect } from 'react';
 import { defaultPalette } from './utils/defaultPalette';
 import { whiteTheme, blackTheme } from './theme';
+import { Palette } from './viewModel/palette.vm';
+
+export enum Theme {
+  Default,
+  Black,
+  White,
+}
+
+const themes: { [key in Theme]: Palette } = {
+  [Theme.Default]: defaultPalette,
+  [Theme.White]: whiteTheme,
+  [Theme.Black]: blackTheme,
+};
 
 export const ThemeContext = React.createContext({
   palette: defaultPalette,
-  setTheme: (theme: string) => {},
-  theme: '',
+  setTheme: (theme: Theme) => {},
+  theme: Theme.Default,
 });
 
 export const MyThemeProvider = props => {
   const [palette, setPalette] = React.useState(defaultPalette);
-  const [theme, setTheme] = React.useState('white');
+  const [theme, setTheme] = React.useState(Theme.White);
 
   React.useEffect(() => {
-    console.log('whiteTheme =>', whiteTheme);
-    console.log('blackTheme =>', blackTheme);
-    setPalette(theme === 'white' ? whiteTheme : blackTheme);
+    setPalette(themes[theme]);
+    //  console.log('activeTheme => ', theme);
   }, [theme]);
 
   return (
