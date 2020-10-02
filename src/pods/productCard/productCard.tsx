@@ -1,8 +1,8 @@
 import React from 'react';
-import { generateStyles } from './productCard.styles';
-import { generateProductCardStyles } from 'core/theme/commonStyles';
 import { ThemeContext } from 'core/theme';
-import { css } from '@emotion/core';
+import { generateProductCardStyles } from 'core/theme/commonStyles';
+import { generateStyles } from './productCard.styles';
+import { useDefineComponentStyle } from 'common/hooks';
 
 interface Props {
   imageUrl: string;
@@ -20,21 +20,20 @@ export const ProductCard: React.FunctionComponent<Props> = ({
   classes = [],
 }) => {
   const { palette } = React.useContext(ThemeContext);
-  const defaultStyles = generateProductCardStyles(palette);
-  //  const styles = generateStyles(palette);
   const [isActive, setIsActive] = React.useState(false);
-  /*
-  const specificClass = () => {
-    return classes.reduce((acc, value) => (acc += styles[value] + ' '), '');
-  };
-*/
+  const { className } = useDefineComponentStyle(
+    palette,
+    generateProductCardStyles,
+    generateStyles,
+    classes
+  );
+
   const handleCard = () => {
     setIsActive(!isActive);
   };
 
   return (
-    //<div onClick={handleCard} className={`${defaultStyles} ${specificClass()}`}>
-    <div onClick={handleCard} className={`${defaultStyles}`}>
+    <div onClick={handleCard} className={`${className}`}>
       <img
         src={`${imageUrl}`}
         alt={`${imageAlt === undefined ? imageAlt : ''}`}
@@ -45,7 +44,10 @@ export const ProductCard: React.FunctionComponent<Props> = ({
         type="checkbox"
         name={`activeCard-${title.trim()}`}
         id={`activeCard-${title.trim()}`}
+        // Review why onChange
+        onChange={() => {}}
         checked={isActive}
+        style={{ visibility: 'hidden' }}
       />
     </div>
   );

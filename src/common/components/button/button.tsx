@@ -2,6 +2,7 @@ import React from 'react';
 import { generateButtonStyles } from 'core/theme/commonStyles';
 import { generateStyles } from './button.styles';
 import { ThemeContext } from 'core/theme';
+import { useDefineComponentStyle } from 'common/hooks';
 
 export const Button: React.FunctionComponent<{
   onClick: () => void;
@@ -9,17 +10,15 @@ export const Button: React.FunctionComponent<{
   classes?: string[];
 }> = ({ onClick, buttonText, classes }) => {
   const { palette } = React.useContext(ThemeContext);
+  const { className } = useDefineComponentStyle(
+    palette,
+    generateButtonStyles,
+    generateStyles,
+    classes
+  );
 
-  const defaultStyles = generateButtonStyles(palette);
- /* const styles = generateStyles(palette);
-
-  const specificClass = () => {
-    return classes.reduce((acc, value) => (acc += styles[value] + ' '), '');
-  };
-*/
   return (
-//    <button className={`${defaultStyles} ${specificClass()}`} onClick={onClick}>
-    <button className={`${defaultStyles}`} onClick={onClick}>
+    <button className={className} onClick={onClick}>
       {buttonText}
     </button>
   );

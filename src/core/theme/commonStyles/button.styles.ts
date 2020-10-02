@@ -5,6 +5,7 @@ export const generateButtonStyles = (palette: Palette) => {
   const defaultButton = css`
     padding: 0.5rem;
     color: ${palette.common.black};
+    outline: none;
   `;
 
   return {

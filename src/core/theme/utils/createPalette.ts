@@ -4,10 +4,12 @@ import { Palette } from '../viewModel/palette.vm';
 import { LightenDarkenColor } from './lightenDarken';
 
 export const createPalette = (palette: Palette) => {
-  return merge({}, defaultPalette, addingColorsToPalette(palette));
+  return merge({}, defaultPalette, addingMonochromaticColorsToPalette(palette));
 };
 
-const addingColorsToPalette = ({ ...paletteItems }: Palette): Palette => {
+const addingMonochromaticColorsToPalette = ({
+  ...paletteItems
+}: Palette): Palette => {
   Object.entries(paletteItems).map(value => {
     const item = value[1];
 

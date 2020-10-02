@@ -14,7 +14,6 @@ export const ProductListLayout: React.FunctionComponent<{
 
   return (
     <>
-      <button onClick={onToggle}></button>
       <Button
         onClick={onChangeTheme}
         buttonText="Change Theme"
@@ -24,8 +23,7 @@ export const ProductListLayout: React.FunctionComponent<{
         imageUrl="https://lh3.googleusercontent.com/proxy/-X7rqaEJQOn0o_2JckefUDSVjjCskbBbl77Uc3yvQukrUZqX0KioNOiCVQx43Rnjm10MEhtGNf3TmEOcWyvQF_xjEGpJA7jdXoFELPdX8eKTcmpuJV1AEV4"
         title="Gatete gafudo"
       />
-      <button onClick={onChangeTheme}>cambia tema</button>
-      <div>{'hola desde productList'}</div>
+      <button onClick={onToggle}>Toggleame</button>
     </>
   );
 };

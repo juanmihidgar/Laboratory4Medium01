@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { defaultPalette } from './utils/defaultPalette';
 import { whiteTheme, blackTheme } from './theme';
 import { Palette } from './viewModel/palette.vm';

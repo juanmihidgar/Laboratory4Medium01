@@ -1,6 +1,6 @@
-import { DefaultPalette } from '../viewModel/defaultPalette.vm';
+import { Palette } from '../viewModel/Palette.vm';
 
-export const defaultPalette: DefaultPalette = {
+export const defaultPalette: Palette = {
   common: {
     black: '#000',
     white: '#fff',
@@ -47,5 +47,11 @@ export const defaultPalette: DefaultPalette = {
     main: '#4caf50',
     dark: '#388e3c',
     textColor: '#000',
+  },
+  productCard: {
+    light: '#81c784',
+    main: '#4caf50',
+    dark: '#388e3c',
+    background: 'red',
   },
 };
