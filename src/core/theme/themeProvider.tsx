@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { defaultPalette } from './utils/defaultPalette';
 import { whiteTheme, blackTheme } from './theme';
 import { Palette } from './viewModel/palette.vm';
+import * as defaultStyles from './commonStyles';
 
 export enum Theme {
   Default,
@@ -19,7 +20,6 @@ export const ThemeContext = React.createContext({
   palette: defaultPalette,
   setTheme: (theme: Theme) => {},
   theme: Theme.Default,
-  getPalette: () => {},
 });
 
 export const MyThemeProvider = props => {
@@ -28,18 +28,10 @@ export const MyThemeProvider = props => {
 
   React.useEffect(() => {
     setPalette(themes[theme]);
-    //  console.log('activeTheme => ', theme);
   }, [theme]);
 
-  const getPalette = () => {
-    console.log(themes);
-    console.log(theme);
-    console.log('en la paleta', themes[theme]);
-    return themes[theme];
-  };
-
   return (
-    <ThemeContext.Provider value={{ palette, setTheme, theme, getPalette }}>
+    <ThemeContext.Provider value={{ palette, setTheme, theme }}>
       {props.children}
     </ThemeContext.Provider>
   );

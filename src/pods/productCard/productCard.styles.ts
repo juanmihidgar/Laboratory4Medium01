@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import { Palette } from 'core/theme/viewModel/palette.vm';
 
 export const generateStyles = (palette: Palette) => {
-  const themeButton = css`
+  const themeProductCard = css`
     padding: 0.5rem;
     text-align: center;
     background: ${palette.button.main};
@@ -12,6 +12,6 @@ export const generateStyles = (palette: Palette) => {
   `;
 
   return {
-    themeButton,
+    themeProductCard,
   };
 };
