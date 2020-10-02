@@ -46,4 +46,12 @@ export interface DefaultPalette {
     dark?: string;
     contrastText?: string;
   };
+
+  button?: {
+    light?: string;
+    main?: string;
+    dark?: string;
+    textColor?: string;
+    borderColor?: string;
+  };
 }

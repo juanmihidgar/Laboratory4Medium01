@@ -19,6 +19,7 @@ export const ThemeContext = React.createContext({
   palette: defaultPalette,
   setTheme: (theme: Theme) => {},
   theme: Theme.Default,
+  getPalette: () => {},
 });
 
 export const MyThemeProvider = props => {
@@ -30,8 +31,15 @@ export const MyThemeProvider = props => {
     //  console.log('activeTheme => ', theme);
   }, [theme]);
 
+  const getPalette = () => {
+    console.log(themes);
+    console.log(theme);
+    console.log('en la paleta', themes[theme]);
+    return themes[theme];
+  };
+
   return (
-    <ThemeContext.Provider value={{ palette, setTheme, theme }}>
+    <ThemeContext.Provider value={{ palette, setTheme, theme, getPalette }}>
       {props.children}
     </ThemeContext.Provider>
   );

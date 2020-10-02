@@ -1,4 +1,17 @@
 import { keyframes, css } from 'emotion';
+import { Palette } from 'core/theme/viewModel/palette.vm';
+
+export const generateStyles = (palette: Palette) => {
+  const productListBlock = css`
+    background: ${palette.primary.main};
+    flex: 1;
+    flex-basis: 75%;
+  `;
+
+  return {
+    productListBlock,
+  };
+};
 
 export const general = css`
   position: relative;
@@ -14,7 +27,7 @@ export const productListBlock = css`
 `;
 
 export const sidebar = css`
-  width: 25%;
+  width: 0%;
   background: green;
 `;
 

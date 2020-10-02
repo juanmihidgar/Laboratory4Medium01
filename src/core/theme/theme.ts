@@ -8,6 +8,9 @@ export const whiteTheme: Palette = createPalette({
   productCard: {
     background: 'white',
   },
+  button: {
+    main: '#FC8260',
+  },
 });
 
 export const blackTheme: Palette = createPalette({
@@ -16,5 +19,8 @@ export const blackTheme: Palette = createPalette({
   },
   productCard: {
     background: 'red',
+  },
+  button: {
+    main: '#915757',
   },
 });
