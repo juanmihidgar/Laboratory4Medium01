@@ -33,6 +33,8 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "emotion": "^10.0.23",
     "lodash.merge": "^4.6.2",
     "normalize.css": "^8.0.1",

@@ -35,11 +35,11 @@ export const ProductListScene: React.FC = () => {
   return (
     <div className={classes.general}>
       <div className={classescitas && classescitas.productListBlock}>
-        <ProductListLayout onToggle={onToggle} />
+        <ProductListLayout />
       </div>
 
       <div className={`${classes.sidebar} ${sidebarStateClass[sidebarState]}`}>
-        <CartLayout />
+        <CartLayout onToggle={onToggle} />
         <Link to={routes.checkout}>Finish</Link>
       </div>
     </div>

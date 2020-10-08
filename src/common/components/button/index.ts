@@ -1,2 +1,2 @@
-import { Button } from './button';
-import { generateStyles } from './button.styles';
+export { Button } from './button';
+export { generateStyles } from './button.styles';

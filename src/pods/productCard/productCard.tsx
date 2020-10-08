@@ -34,10 +34,22 @@ export const ProductCard: React.FunctionComponent<Props> = ({
 
   return (
     <div onClick={handleCard} className={`${className}`}>
-      <img
-        src={`${imageUrl}`}
-        alt={`${imageAlt === undefined ? imageAlt : ''}`}
-      />
+      <div
+        style={{
+          minHeight: '20rem',
+          maxHeight: '20rem',
+          overflow: 'hidden',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <img
+          style={{ maxHeight: '100%' }}
+          src={`${imageUrl}`}
+          alt={`${imageAlt === undefined ? imageAlt : ''}`}
+        />
+      </div>
       <span>{title}</span>
       <span>{description}</span>
       <input
