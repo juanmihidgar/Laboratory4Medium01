@@ -3,6 +3,8 @@ export interface Palette {
     black?: string;
     white?: string;
     type?: string;
+    scrollbarBackground?: string;
+    textColor?: string;
   };
 
   primary?: {
@@ -10,6 +12,11 @@ export interface Palette {
     main?: string;
     dark?: string;
     contrastText?: string;
+  };
+
+  navbar?: {
+    main?: string;
+    secondary?: string;
   };
 
   secondary?: {
@@ -59,5 +66,7 @@ export interface Palette {
     main?: string;
     dark?: string;
     background?: string;
+    borderColor?: string;
+    imageBackground?: string;
   };
 }

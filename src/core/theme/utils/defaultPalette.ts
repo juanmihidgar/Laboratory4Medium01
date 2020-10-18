@@ -5,6 +5,8 @@ export const defaultPalette: Palette = {
     black: '#000',
     white: '#fff',
     type: 'light',
+    scrollbarBackground: 'gray',
+    textColor: '#000',
   },
   primary: {
     light: '#7986cb',
@@ -30,6 +32,10 @@ export const defaultPalette: Palette = {
     dark: '#f57c00',
     contrastText: 'rgba(0, 0, 0, 0.87)',
   },
+  navbar: {
+    main: 'white',
+    secondary: 'black',
+  },
   info: {
     light: '#64b5f6',
     main: '#2196f3',
@@ -53,5 +59,7 @@ export const defaultPalette: Palette = {
     main: '#4caf50',
     dark: '#388e3c',
     background: 'red',
+    borderColor: '#fff',
+    imageBackground: '#4caf50',
   },
 };

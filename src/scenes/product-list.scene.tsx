@@ -11,17 +11,17 @@ enum SidebarState {
   Collapsed,
 }
 
-const sidebarStateClass = {
-  [SidebarState.Default]: '',
-  [SidebarState.Expanded]: classes.expanded,
-  [SidebarState.Collapsed]: classes.collapsed,
-};
-
 export const ProductListScene: React.FC = () => {
   const [sidebarState, setSidebarState] = React.useState(SidebarState.Default);
 
   const { palette } = React.useContext(ThemeContext);
-  const classescitas = classes.generateStyles(palette);
+  const className = classes.generateStyles(palette);
+
+  const sidebarStateClass = {
+    [SidebarState.Default]: '',
+    [SidebarState.Expanded]: className.expanded,
+    [SidebarState.Collapsed]: className.collapsed,
+  };
 
   const onToggle = () => {
     setSidebarState(
@@ -33,12 +33,14 @@ export const ProductListScene: React.FC = () => {
   };
 
   return (
-    <div className={classes.general}>
-      <div className={classescitas && classescitas.productListBlock}>
+    <div className={className.general}>
+      <div className={className && className.productListBlock}>
         <ProductListLayout />
       </div>
 
-      <div className={`${classes.sidebar} ${sidebarStateClass[sidebarState]}`}>
+      <div
+        className={`${className.sidebar} ${sidebarStateClass[sidebarState]}`}
+      >
         <CartLayout onToggle={onToggle} />
         <Link to={routes.checkout}>Finish</Link>
       </div>

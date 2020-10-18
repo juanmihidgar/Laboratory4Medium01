@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const helpers = require('./helpers');
-
+console.log(helpers.resolveFromRootPath('src'));
 module.exports = merge(
   {},
   {

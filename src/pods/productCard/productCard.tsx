@@ -1,15 +1,13 @@
 import React from 'react';
 import { ThemeContext } from 'core/theme';
-import { generateProductCardStyles } from 'core/theme/commonStyles';
-import { generateStyles } from './productCard.styles';
-import { useDefineComponentStyle } from 'common/hooks';
+import * as classes from './productCard.styles';
 
 interface Props {
   imageUrl: string;
   imageAlt?: string;
   title: string;
   description?: string;
-  classes?: string[];
+  onImageLoad?: () => void;
 }
 
 export const ProductCard: React.FunctionComponent<Props> = ({
@@ -17,45 +15,38 @@ export const ProductCard: React.FunctionComponent<Props> = ({
   imageAlt,
   title,
   description,
-  classes = [],
+  onImageLoad,
 }) => {
   const { palette } = React.useContext(ThemeContext);
+  const className = classes.generateStyles(palette);
   const [isActive, setIsActive] = React.useState(false);
-  const { className } = useDefineComponentStyle(
-    palette,
-    generateProductCardStyles,
-    generateStyles,
-    classes
-  );
 
   const handleCard = () => {
     setIsActive(!isActive);
   };
 
   return (
-    <div onClick={handleCard} className={`${className}`}>
-      <div
-        style={{
-          minHeight: '20rem',
-          maxHeight: '20rem',
-          overflow: 'hidden',
-          position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <img
-          style={{ maxHeight: '100%' }}
-          src={`${imageUrl}`}
-          alt={`${imageAlt === undefined ? imageAlt : ''}`}
-        />
+    <div
+      onClick={handleCard}
+      className={`${className.themeProductCard} ${isActive &&
+        className.productSelected}`}
+    >
+      <div className={className.cardContainer}>
+        <div className={`${className.productImageCard}`}>
+          <img
+            className={className.image}
+            onLoad={onImageLoad}
+            src={`${imageUrl}`}
+            alt={`${imageAlt === undefined ? imageAlt : ''}`}
+          />
+        </div>
       </div>
       <span>{title}</span>
       <span>{description}</span>
       <input
         type="checkbox"
-        name={`activeCard-${title.trim()}`}
-        id={`activeCard-${title.trim()}`}
+        name={`activeCard-${title.replace(/\s/g, '')}`}
+        id={`activeCard-${title.replace(/\s/g, '')}`}
         // Review why onChange
         onChange={() => {}}
         checked={isActive}

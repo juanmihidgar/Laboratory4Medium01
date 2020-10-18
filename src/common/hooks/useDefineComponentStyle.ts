@@ -4,17 +4,16 @@ interface UseDefineComponentStyle {
   palette: Palette;
   generateStyles: (Palette) => Palette;
   generateSpecificStyles?: (Palette) => string[];
-  classes?: string[];
 }
 
 export const useDefineComponentStyle = (
   palette,
   // Review types of functions
   generateStyles,
-  generateSpecificStyles,
-  classes = []
+  generateSpecificStyles
 ) => {
   let className = '';
+  const classNameArray = [];
 
   const defaultClasses = generateStyles(palette);
   const specificStyles = generateSpecificStyles(palette);
@@ -25,11 +24,16 @@ export const useDefineComponentStyle = (
         ? defaultClasses[value]
         : specificStyles[value]
     } `;
-  }
 
-  //  classes.forEach(item => (className += `specificStyles[item] `));
+    classNameArray.push(
+      defaultClasses[value] !== undefined
+        ? defaultClasses[value]
+        : specificStyles[value]
+    );
+  }
 
   return {
     className,
+    classNameArray,
   };
 };
