@@ -19,10 +19,10 @@ export const generateStyles = (palette: Palette) => {
     overflow: hidden;
 
     div::-webkit-scrollbar {
-      width: 0.6rem;
+      width: 0.3rem;
     }
     div::-webkit-scrollbar-track {
-      background: ${palette.secondary.dark};
+      background: ${palette.primary.dark};
       border-radius: 0.3rem;
     }
     div::-webkit-scrollbar-thumb {
@@ -32,13 +32,14 @@ export const generateStyles = (palette: Palette) => {
   `;
 
   const sidebar = css`
-    width: 5%;
-    background: ${palette.primary.dark};
+    width: 6%;
+    min-width: 6rem;
+    background: ${palette.primary.main};
   `;
 
   const expand = keyframes`
   0% {
-    width: 5%;
+    width: 6%;
   }
 
   100% {
@@ -52,7 +53,7 @@ export const generateStyles = (palette: Palette) => {
   }
 
   100% {
-    width: 5%;
+    width: 6%;
   }
   `;
 

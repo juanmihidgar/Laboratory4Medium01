@@ -1,2 +1,2 @@
 export * from './cart.layout';
-export * from './product-list.layout';
+export { ProductListLayout } from './product-list.layout';

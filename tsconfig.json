@@ -18,7 +18,8 @@
       "scenes": ["scenes"],
       "pods": ["pods"],
       "layouts": ["layouts"],
-      "common": ["common"]
+      "common": ["common"],
+      "assets": ["assets"]
     }
   },
   "include": ["./src/**/*", "./config/test/setup.ts", "./global.types.d.ts"]

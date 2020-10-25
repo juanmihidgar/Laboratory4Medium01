@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import { Palette } from 'core/theme/viewModel/palette.vm';
 
 export const generateStyles = (palette: Palette) => {
-  const themeProductCard = css`
+  const productCard = css`
     max-width: calc(20% - 2rem);
     max-height: 25rem;
     padding: 1rem;
@@ -16,10 +16,12 @@ export const generateStyles = (palette: Palette) => {
     flex-direction: column;
     gap: 0.3rem;
     flex: 1;
+    min-width: 16rem;
+    cursor: pointer;
   `;
 
   const productSelected = css`
-    box-shadow: 0px 0px 0.3rem 5px rgba(80, 186, 168, 1);
+    box-shadow: 0px 0px 0.3rem 5px ${palette.productCard.borderColor};
   `;
 
   const cardContainer = css`
@@ -36,6 +38,8 @@ export const generateStyles = (palette: Palette) => {
     border-radius: 0.5rem;
     overflow: hidden;
     background: white;
+    display: flex;
+    justify-content: center;
   `;
 
   const image = css`
@@ -43,7 +47,7 @@ export const generateStyles = (palette: Palette) => {
   `;
 
   return {
-    themeProductCard,
+    productCard,
     cardContainer,
     productSelected,
     productImageCard,

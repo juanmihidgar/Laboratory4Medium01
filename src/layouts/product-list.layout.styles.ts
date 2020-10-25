@@ -9,7 +9,8 @@ export const generateStyles = (palette: Palette) => {
   const productListContent = css`
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    overflow-y: auto;
+    justify-content: center;
     height: 100vh;
   `;
 

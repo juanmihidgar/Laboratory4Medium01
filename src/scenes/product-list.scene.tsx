@@ -13,8 +13,9 @@ enum SidebarState {
 
 export const ProductListScene: React.FC = () => {
   const [sidebarState, setSidebarState] = React.useState(SidebarState.Default);
-
-  const { palette } = React.useContext(ThemeContext);
+  const { palette, productList, setProductList } = React.useContext(
+    ThemeContext
+  );
   const className = classes.generateStyles(palette);
 
   const sidebarStateClass = {
@@ -41,7 +42,7 @@ export const ProductListScene: React.FC = () => {
       <div
         className={`${className.sidebar} ${sidebarStateClass[sidebarState]}`}
       >
-        <CartLayout onToggle={onToggle} />
+        <CartLayout onToggle={onToggle} sidebarState={sidebarState} />
         <Link to={routes.checkout}>Finish</Link>
       </div>
     </div>

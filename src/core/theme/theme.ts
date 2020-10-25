@@ -10,19 +10,21 @@ export const whiteTheme: Palette = createPalette({
     main: '#F0F0F0',
   },
   secondary: {
-    main: '#E8BD23',
+    main: '#FF9385',
   },
   navbar: {
-    main: 'red',
-    secondary: 'green',
+    main: '#FF9385',
+    secondary: '#50BAA8',
   },
   productCard: {
-    background: '#ec8f18',
+    background: '#FF9385',
     borderColor: '#50BAA8',
     imageBackground: '#F0F0F0',
   },
   button: {
-    main: '#FC8260',
+    main: '#50BAA8',
+    borderColor: '#FC8260',
+    textColor: '#ffffff',
   },
 });
 
@@ -33,10 +35,10 @@ export const blackTheme: Palette = createPalette({
   },
   primary: {
     main: '#161e25',
-    dark: '#1d252f',
+    dark: '#A1600B',
   },
   secondary: {
-    main: '#bf7519',
+    main: '#1d252f',
   },
   navbar: {
     main: '#ffffff',
@@ -48,6 +50,8 @@ export const blackTheme: Palette = createPalette({
     imageBackground: '#333333',
   },
   button: {
-    main: '#915757',
+    main: '#F09016',
+    textColor: '#000000',
+    borderColor: '#F09016',
   },
 });

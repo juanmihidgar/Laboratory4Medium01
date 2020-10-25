@@ -1,1 +1,0 @@
-export { useDefineComponentStyle } from './useDefineComponentStyle';

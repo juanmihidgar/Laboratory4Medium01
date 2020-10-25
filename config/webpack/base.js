@@ -13,6 +13,7 @@ module.exports = merge(
         pods: helpers.resolveFromRootPath('src/pods'),
         layouts: helpers.resolveFromRootPath('src/layouts'),
         common: helpers.resolveFromRootPath('src/common'),
+        assets: helpers.resolveFromRootPath('src/assets'),
       },
       extensions: ['.js', '.ts', '.tsx'],
     },
