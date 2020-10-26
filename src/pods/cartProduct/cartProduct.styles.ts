@@ -28,6 +28,9 @@ export const generateStyles = (palette: Palette) => {
       border-radius: 0.3rem;
     }
 
+    h2 {
+      color: ${palette.common.textColor};
+    }
     img {
       width: 100%;
     }
